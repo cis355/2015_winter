@@ -1,0 +1,23 @@
+$config['base_url'] = 'http://csis.svsu.edu/~gpcorser/CodeIgniter';
+
+matt's code
+<?php
+
+class Hello extends CI_Controller {
+   private $name;
+   private $color;
+
+   function __construct() {
+      parent::__construct();
+      $this->name = 'Buttercup';
+      $this->color = 'pink';
+   }
+
+   function you($firstName='', $lastName='') {
+      $data['name'] = $firstName ? $firstName.' '.$lastName : $this->name;
+      $data['color'] = $this->color;
+      $this->load->view('you_view', $data);
+   }
+}
+
+?>

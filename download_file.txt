@@ -1,0 +1,31 @@
+<?php
+
+mysql_connect("localhost","gpcorser","remember");
+mysql_select_db("gpcorser");
+$id = 1; 
+
+// display list of id's available
+$query = "SELECT id, name, size, type 
+  FROM gpc_upload2";
+$result  = mysql_query ($query);
+
+foreach ($result as $row)
+{
+  echo "<p>" . row['id'] . ' ' . row['name'] . 
+    ' ' . row['size'] . ' ' . row['type'] . "</p>";
+}
+
+/*
+// display picture (file contents) of $id
+$query = "SELECT name, size, content, type 
+  FROM gpc_upload2 WHERE id=$id";
+$result  = mysql_query ($query);
+$name    = mysql_result($result, 0, "name");
+$size    = mysql_result($result, 0, "size");
+$type    = mysql_result($result, 0, "type");
+$content = mysql_result($result, 0, "content");
+Header( "Content-type: $type");
+print $content;
+*/
+
+?>
